@@ -1,0 +1,5 @@
+fast-api
+
+uvicorn
+
+motor
