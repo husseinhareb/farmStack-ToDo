@@ -1,6 +1,3 @@
-// @bekbrace
-// FARMSTACK Tutorial - Sunday 13.06.2021
- 
 import React, { useState, useEffect} from 'react';
 import './App.css';
 import TodoView from './components/TodoListView.js';
