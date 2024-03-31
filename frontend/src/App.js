@@ -37,31 +37,31 @@ function App() {
 
 
   return (
-    <div className="container d-flex justify-content-center align-items-center" style={{ minHeight: "100vh" }}>
-      <div className="App"
+    <div className="container d-flex justify-content-center align-items-center" style={{ minHeight: "100vh", "backgroundColor": "#eredfd"}}>
+      <div className="App" style={{
+        borderRadius: "15px",
+        background: "#E9E9E9",
+        boxShadow: "14px 14px 21px #c6c6c6, -14px -14px 21px #ffffff, inset -3px -3px 3px rgba(0, 0, 0, 0.13), inset 3px 3px 3px rgba(255, 255, 255, 0.13)",
+        height: "600px",
+        width: "350px"
+      }}>
+      <div className="list-group-item"
         style={{
           borderRadius: "14px",
-          background: "#E9E9E9",
-          boxShadow: "inset 5px 5px 20px #aaaaaa,inset -5px -5px 20px #ffffff",
-          "height": "600px", "width": "350px"
+          background: "#99c1f1",
+          "margin": "10px"
         }}>
-        <div className="list-group-item"
-          style={{
-            borderRadius: "14px",
-            background: "#99c1f1",
-            "margin": "10px"
-          }}>
-          <div className="card-body d-flex flex-column align-items-center">
-            <input className="mb-2" onChange={(e) => setTitle(e.target.value)} value={title} placeholder='Enter a title' maxLength={10} style={{ "width": "120px" }} />
-            <input className="mb-2" onChange={(e) => setDesc(e.target.value)} value={desc} placeholder='Enter a description' />
-            <button className="btn" onClick={addTodoHandler}>Add Task</button>
-            <div>
-              <TodoListView todoList={todoList} setTodoList={setTodoList} />
-            </div>
+        <div className="card-body d-flex flex-column align-items-center">
+          <input className="mb-2" onChange={(e) => setTitle(e.target.value)} value={title} placeholder='Enter a title' maxLength={10} style={{ "width": "120px" }} />
+          <input className="mb-2" onChange={(e) => setDesc(e.target.value)} value={desc} placeholder='Enter a description' />
+          <button className="btn" onClick={addTodoHandler}>Add Task</button>
+          <div>
+            <TodoListView todoList={todoList} setTodoList={setTodoList} />
           </div>
         </div>
       </div>
     </div>
+    </div >
   );
 }
 
