@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React from 'react';
-import { IndvBtn, IndvTask } from '../styled-components/main-style';
+import { IndvBtn, IndvTask, ButtonContainer } from '../styled-components/main-style';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
 
@@ -23,14 +23,20 @@ function TodoItem({ todo, todoList, setTodoList }) {
   };
   return (
     <IndvTask>
-      <p>{todo.title}</p> {todo.description}
-      <IndvBtn onClick={() => deleteTodoHandler(todo.title)} className="btn" >
-        <FontAwesomeIcon icon={faTrash} />
-      </IndvBtn>
-      <IndvBtn onClick={() => editTodoHandler(todo.title)} className="btn" >
-        <FontAwesomeIcon icon={faPenSquare} />
-      </IndvBtn>
+      <div>
+        <p>{todo.title}</p>
+        <p>{todo.description}</p>
+      </div>
+      <ButtonContainer>
+        <IndvBtn onClick={() => deleteTodoHandler(todo.title)} className="btn" >
+          <FontAwesomeIcon icon={faTrash} />
+        </IndvBtn>
+        <IndvBtn onClick={() => editTodoHandler(todo.title)} className="btn" >
+          <FontAwesomeIcon icon={faPenSquare} />
+        </IndvBtn>
+      </ButtonContainer>
     </IndvTask>
+
   );
 }
 
