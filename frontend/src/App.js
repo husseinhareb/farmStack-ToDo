@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import TodoView from './components/TodoListView';
+import TodoListView from './components/TodoListView';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -34,27 +34,30 @@ function App() {
       .catch(error => console.error(error));
   };
 
-  const deleteTodoHandler = (title) => {
-    axios.delete(`http://localhost:8000/api/todo/${title}`)
-      .then(res => {
-        console.log(res.data);
-        setTodoList(todoList.filter(todo => todo.title !== title));
-      })
-      .catch(error => console.error(error));
-  };
-  
+
+
   return (
-    <div className="App" style={{ backgroundColor: "#4C5B61", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
-      <div className="list-group-item" style={{ backgroundColor: "#DBFCFF" }}>
-        <div className="card-body">
-          <span className="card-text">
-            <input className="mb-2" onChange={(e) => setTitle(e.target.value)} value={title} placeholder='Enter a title' />
+    <div className="container d-flex justify-content-center align-items-center" style={{ minHeight: "100vh" }}>
+      <div className="App"
+        style={{
+          borderRadius: "14px",
+          background: "#E9E9E9",
+          boxShadow: "inset 5px 5px 20px #aaaaaa,inset -5px -5px 20px #ffffff",
+          "height": "600px", "width": "350px"
+        }}>
+        <div className="list-group-item"
+          style={{
+            borderRadius: "14px",
+            background: "#99c1f1",
+            "margin": "10px"
+          }}>
+          <div className="card-body d-flex flex-column align-items-center">
+            <input className="mb-2" onChange={(e) => setTitle(e.target.value)} value={title} placeholder='Enter a title' maxLength={10} style={{ "width": "120px" }} />
             <input className="mb-2" onChange={(e) => setDesc(e.target.value)} value={desc} placeholder='Enter a description' />
             <button className="btn" onClick={addTodoHandler}>Add Task</button>
-          </span>
-          <h5 className="card">Your Tasks</h5>
-          <div>
-            <TodoView todoList={todoList} setTodoList={setTodoList} />
+            <div>
+              <TodoListView todoList={todoList} setTodoList={setTodoList} />
+            </div>
           </div>
         </div>
       </div>
