@@ -25,7 +25,7 @@ export const CardBody = styled.div`
 export const TitleInput = styled.input`
   width: 100px;
   margin-top: 10px;
-  border-radius: 10px;
+  border-radius: 4px;
   border: 0px;
 `;
 
