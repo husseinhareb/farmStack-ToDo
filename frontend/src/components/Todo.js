@@ -9,8 +9,8 @@ function TodoItem(props) {
     return (
         <div>
             <p>
-                <span style={{ fontWeight: 'bold, underline' }}>{props.todo.title} : </span> {props.todo.description} 
-                <button onClick={() => deleteTodoHandler(props.todo.title)} className="btn btn-outline-danger my-2 mx-2" style={{'borderRadius':'50px',}}>X</button>
+                <span>{props.todo.title} : </span> {props.todo.description} 
+                <button onClick={() => deleteTodoHandler(props.todo.title)} className="btn" >X</button>
                 <hr></hr>
             </p>
         </div>

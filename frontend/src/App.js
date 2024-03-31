@@ -26,26 +26,32 @@ function App() {
     axios.post('http://localhost:8000/api/todo/', { 'title': title, 'description': desc })
       .then(res => console.log(res))
 };
-
+  const handleTaskTitle =(e) =>{
+    const trimmedValue = e.target.value.trimStart();
+    setTitle(trimmedValue);
+  }
+  const handleTaskDesc = (e) =>{
+    const trimmedValue = e.target.value.trimStart();
+    setDesc(trimmedValue);
+  }
 return (
-  <div className="App d-flex justify-content-center align-items-center" style={{"backgroundColor":"white", "marginTop":"15px", "height": "100vh"}}>
-    <div className="list-group-item mx-auto" style={{"width":"400px"}}>
-      <h1 className="card text-white bg-primary mb-1" styleName="max-width: 20rem;">Task Manager</h1>
+  <div className="App" style={{ backgroundColor: "#4C5B61", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
+    <div className="list-group-item" style={{ backgroundColor: "#DBFCFF" }}>
       <div className="card-body">
-        <h5 className="card text-white bg-dark mb-3">Add Your Task</h5>
-        <span className="card-text"> 
-          <input className="mb-2 form-control titleIn" onChange={event => setTitle(event.target.value)} placeholder='Title'/> 
-          <input className="mb-2 form-control desIn" onChange={event => setDesc(event.target.value)}   placeholder='Description'/>
-          <button className="btn btn-outline-primary mx-2 mb-3" style={{'borderRadius':'50px',"fontWeight":"bold"}}  onClick={addTodoHandler}>Add Task</button>
+        <span className="card-text">
+          <input className="mb-2" onChange={handleTaskTitle} value={title} placeholder='Enter a title' />
+          <input className="mb-2" onChange={handleTaskDesc} value={desc} placeholder='Enter a description' />
+          <button className="btn" onClick={addTodoHandler}>Add Task</button>
         </span>
-        <h5 className="card text-white bg-dark mb-3">Your Tasks</h5>
-        <div >
+        <h5 className="card">Your Tasks</h5>
+        <div>
           <TodoView todoList={todoList} />
         </div>
       </div>
     </div>
   </div>
 );
+
 
 }
 
