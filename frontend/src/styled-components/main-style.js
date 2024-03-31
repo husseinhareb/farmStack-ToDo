@@ -16,13 +16,24 @@ export const GroupItem = styled.div`
   background: #05A8AA;
   margin: 10px;
 `;
+
 export const AppContainer = styled.div`
   border-radius: 15px;
   background: #e9e9e9;
   box-shadow: 14px 14px 21px #c6c6c6, -14px -14px 21px #ffffff, inset -3px -3px 3px rgba(0, 0, 0, 0.13), inset 3px 3px 3px rgba(255, 255, 255, 0.13);
-  height: 600px;
+  height: 600px; /* Fixed height */
   width: 350px;
+  overflow-y: hidden;
+  transition: overflow 0.3s ease;
+  
+  &:hover {
+    overflow-y: auto; 
+  }
+  ::-webkit-scrollbar {
+    width: 10px; 
+  }
 `;
+
 
 export const CardBody = styled.div`
   display: flex;
@@ -64,5 +75,15 @@ export const IndvTask = styled.div`
   margin:10px;
   background: #05A8AA;
   border-radius:10px;
+  min-height:100px
 `;
 
+export const IndvBtn = styled.button`
+align-self: flex-end;
+margin: 10px;
+border: 0px;
+border-radius: 5px;
+background: #FE5F55;
+cursor: pointer;
+padding: 10px
+`;

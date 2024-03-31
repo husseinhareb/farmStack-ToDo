@@ -4,6 +4,7 @@ import TodoView from '../components/TodoView';
 import { GroupItem, Container, AppContainer, CardBody, TitleInput, DescriptionTextarea, AddButton } from "../styled-components/main-style";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+
 function Todo() {
   const [todoList, setTodoList] = useState([]);
   const [title, setTitle] = useState('');
