@@ -19,27 +19,31 @@ function App() {
       .then(res => {
         setTodoList(res.data)
       })
-  }, []);
+  },[]);
 
   // Post a todo
-  const addTodoHandler = () => {
-    if (!title.trim()) {
-      alert("Title cannot be empty or start with a space");
-      return;
-    }
+const addTodoHandler = () => {
+  if (!title.trim()) {
+    alert("Title cannot be empty or start with a space");
+    return;
+  }
 
-    if (!desc.trim()) {
-      alert("Description cannot be empty");
-      return;
-    }
+  if (!desc.trim()) {
+    alert("Description cannot be empty");
+    return;
+  }
 
-    axios.post('http://localhost:8000/api/todo/', { 'title': title, 'description': desc })
-      .then(res => console.log(res))
-      .catch(error => console.error(error));
+  axios.post('http://localhost:8000/api/todo/', { 'title': title, 'description': desc })
+    .then(res => {
+      console.log(res);
+      setTodoList([...todoList, { title, description: desc }]);
+    })
+    .catch(error => console.error(error));
 
-    setTitle('');
-    setDesc('');
-  };
+  setTitle('');
+  setDesc('');
+};
+
 
   const handleTaskTitle = (e) => {
     const trimmedValue = e.target.value.trimStart();
