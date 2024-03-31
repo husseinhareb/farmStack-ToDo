@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
-import TodoListView from './components/TodoListView';
 import axios from 'axios';
+import TodoListView from './components/TodoListView';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, AppContainer, CardBody, TitleInput, DescriptionTextarea, AddButton } from "../src/styled-components/main";
 
 function App() {
   const [todoList, setTodoList] = useState([]);
   const [title, setTitle] = useState('');
   const [desc, setDesc] = useState('');
 
-  // Read all todos
   useEffect(() => {
     axios.get('http://localhost:8000/api/todo')
       .then(res => {
@@ -18,7 +17,6 @@ function App() {
       .catch(error => console.error(error));
   }, []);
 
-  // Post a todo
   const addTodoHandler = () => {
     if (!title.trim() || !desc.trim()) {
       alert("Title and description cannot be empty");
@@ -34,34 +32,19 @@ function App() {
       .catch(error => console.error(error));
   };
 
-
-
   return (
-    <div className="container d-flex justify-content-center align-items-center" style={{ minHeight: "100vh", "backgroundColor": "#eredfd"}}>
-      <div className="App" style={{
-        borderRadius: "15px",
-        background: "#E9E9E9",
-        boxShadow: "14px 14px 21px #c6c6c6, -14px -14px 21px #ffffff, inset -3px -3px 3px rgba(0, 0, 0, 0.13), inset 3px 3px 3px rgba(255, 255, 255, 0.13)",
-        height: "600px",
-        width: "350px"
-      }}>
-      <div className="list-group-item"
-        style={{
-          borderRadius: "14px",
-          background: "#99c1f1",
-          "margin": "10px"
-        }}>
-        <div className="card-body d-flex flex-column align-items-center">
-          <input className="mb-2" onChange={(e) => setTitle(e.target.value)} value={title} placeholder='Enter a title' maxLength={10} style={{ "width": "120px" }} />
-          <input className="mb-2" onChange={(e) => setDesc(e.target.value)} value={desc} placeholder='Enter a description' />
-          <button className="btn" onClick={addTodoHandler}>Add Task</button>
-          <div>
+    <Container>
+      <AppContainer>
+        <div className="list-group-item" style={{ borderRadius: "14px", background: "#99c1f1", margin: "10px" }}>
+          <CardBody>
+            <TitleInput onChange={(e) => setTitle(e.target.value)} value={title} placeholder='Enter a title' maxLength={10} />
+            <DescriptionTextarea onChange={(e) => setDesc(e.target.value)} value={desc} placeholder='Enter a description' cols={50} rows={3} />
+            <AddButton onClick={addTodoHandler}>Add Task</AddButton>
             <TodoListView todoList={todoList} setTodoList={setTodoList} />
-          </div>
+          </CardBody>
         </div>
-      </div>
-    </div>
-    </div >
+      </AppContainer>
+    </Container>
   );
 }
 
