@@ -1,1 +1,13 @@
-        
+@font-face {
+  font-family: 'Arial Rounded';
+  src: url('./assets/fonts/ttf/Arial-Rounded.ttf') format('truetype');
+}
+
+
+* {
+  font-family: 'Arial Rounded', sans-serif;
+}
+
+body {
+  background-color: #e9e9e9;
+}

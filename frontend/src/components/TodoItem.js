@@ -1,5 +1,8 @@
 import axios from 'axios';
 import React from 'react';
+import { IndvTask } from '../styled-components/main-style';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPenSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 function TodoItem({ todo, todoList, setTodoList }) {
   const deleteTodoHandler = (title) => {
@@ -19,14 +22,15 @@ function TodoItem({ todo, todoList, setTodoList }) {
       .catch(error => console.error(error));
   };
   return (
-    <div>
-      <p>
-        <span>{todo.title} : </span> {todo.description} 
-        <button onClick={() => deleteTodoHandler(todo.title)} className="btn" >X</button>
-        <button onClick={() => editTodoHandler(todo.title)} className="btn" >edit</button>
-
-      </p>
-    </div>
+    <IndvTask>
+      <p>{todo.title}</p> {todo.description}
+      <button onClick={() => deleteTodoHandler(todo.title)} className="btn" >
+        <FontAwesomeIcon icon={faTrash} />
+      </button>
+      <button onClick={() => editTodoHandler(todo.title)} className="btn" >
+        <FontAwesomeIcon icon={faPenSquare} />
+      </button>
+    </IndvTask>
   );
 }
 

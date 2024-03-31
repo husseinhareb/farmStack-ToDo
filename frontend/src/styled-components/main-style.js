@@ -1,13 +1,21 @@
 import styled from 'styled-components';
 
+
+
 export const Container = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  height: 98vh;
   background-color: #eredfd;
 `;
 
+export const GroupItem = styled.div`
+  border-radius: 14px;
+  background: #05A8AA;
+  margin: 10px;
+`;
 export const AppContainer = styled.div`
   border-radius: 15px;
   background: #e9e9e9;
@@ -27,6 +35,8 @@ export const TitleInput = styled.input`
   margin-top: 10px;
   border-radius: 4px;
   border: 0px;
+  background:#17B4BC;
+  outline: none;
 `;
 
 export const DescriptionTextarea = styled.textarea`
@@ -35,9 +45,24 @@ export const DescriptionTextarea = styled.textarea`
   resize: none;
   border-radius: 10px;
   border: 0px;
+  background:#17B4BC;
+  outline: none;
 `;
 
 export const AddButton = styled.button`
-  margin-top: 10px;
+  align-self: flex-end;
+  margin: 10px;
+  border: 0px;
+  border-radius: 5px;
+  background: #FE5F55;
+  cursor: pointer;
+  padding: 10px
+`;
+
+export const IndvTask = styled.div`
+  border: 0px;
+  margin:10px;
+  background: #05A8AA;
+  border-radius:10px;
 `;
 

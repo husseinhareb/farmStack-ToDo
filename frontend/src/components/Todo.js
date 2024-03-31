@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import TodoView from '../components/TodoView';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, AppContainer, CardBody, TitleInput, DescriptionTextarea, AddButton } from "../styled-components/main-style";
-
+import { GroupItem, Container, AppContainer, CardBody, TitleInput, DescriptionTextarea, AddButton } from "../styled-components/main-style";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 function Todo() {
   const [todoList, setTodoList] = useState([]);
   const [title, setTitle] = useState('');
@@ -35,14 +35,16 @@ function Todo() {
   return (
     <Container>
       <AppContainer>
-        <div className="list-group-item" style={{ borderRadius: "14px", background: "#99c1f1", margin: "10px" }}>
+        <GroupItem>
           <CardBody>
             <TitleInput onChange={(e) => setTitle(e.target.value)} value={title} placeholder='Enter a title' maxLength={10} />
             <DescriptionTextarea onChange={(e) => setDesc(e.target.value)} value={desc} placeholder='Enter a description' cols={50} rows={3} />
-            <AddButton onClick={addTodoHandler}>Add Task</AddButton>
-            <TodoView todoList={todoList} setTodoList={setTodoList} />
+            <AddButton onClick={addTodoHandler}>
+              <FontAwesomeIcon icon={faPlusCircle} /> Add Task
+            </AddButton>
           </CardBody>
-        </div>
+        </GroupItem>
+        <TodoView todoList={todoList} setTodoList={setTodoList} />
       </AppContainer>
     </Container>
   );
