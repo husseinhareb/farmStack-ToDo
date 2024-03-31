@@ -1,11 +1,14 @@
-import TodoItem from './Todo'
+import React from 'react';
+import TodoItem from './Todo';
 
-export default function TodoView(props) {
-    return (
-        <div>
-            <ul>
-                {props.todoList.map(todo => <TodoItem todo={todo} />)}
-            </ul>
-        </div>
-    )
+export default function TodoView({ todoList, setTodoList }) {
+  return (
+    <div>
+      <ul>
+        {todoList.map(todo => (
+          <TodoItem key={todo.title} todo={todo} todoList={todoList} setTodoList={setTodoList} />
+        ))}
+      </ul>
+    </div>
+  );
 }
