@@ -59,6 +59,7 @@ function TodoItem({ todo, index, todoList, setTodoList, editingTodo, handleEditT
         {isEditing ? (
           <input 
           style={{
+            "fontWeight":"bold",
             "width": "95%",
             "margin": "10px",
             "resize": "none",

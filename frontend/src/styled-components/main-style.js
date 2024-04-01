@@ -63,6 +63,7 @@ export const DescriptionTextarea = styled.textarea`
   background:#4E937A;
   outline: none;
   color: #e9e9e9;
+  word-wrap: break-word;
   
 `;
 
@@ -95,7 +96,6 @@ export const IndvTask = styled.div`
   padding: 10px;
   overflow-wrap: break-word;
   word-wrap: break-word;
-  word-break: break-all;
   min-height:130px;
   color:#e9e9e9;
 `;
