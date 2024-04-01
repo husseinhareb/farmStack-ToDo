@@ -39,7 +39,7 @@ function Todo() {
         <GroupItem>
           <CardBody>
             <TitleInput onChange={(e) => setTitle(e.target.value)} value={title} placeholder='Enter a title' maxLength={10} />
-            <DescriptionTextarea onChange={(e) => setDesc(e.target.value)} value={desc} placeholder='Enter a description' cols={50} rows={3} />
+            <DescriptionTextarea onChange={(e) => setDesc(e.target.value)} value={desc} placeholder='Enter a description' cols={50} rows={3} maxLength={90} />
             <AddButton onClick={addTodoHandler}>
               <FontAwesomeIcon icon={faPlusCircle} /> Add Task
             </AddButton>

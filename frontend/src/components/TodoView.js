@@ -1,12 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TodoItem from './TodoItem';
 
-export default function TodoView({ todoList, setTodoList }) {
+function TodoView({ todoList, setTodoList }) {
+  const [editingTodo, setEditingTodo] = useState(null);
+
+  const handleEditTodo = (todo) => {
+    setEditingTodo(todo);
+  };
+
   return (
     <div>
-      {todoList.map(todo => (
-        <TodoItem key={todo.title} todo={todo} todoList={todoList} setTodoList={setTodoList} />
+      {todoList.map((todo, index) => (
+        <TodoItem
+          key={todo.id}
+          todo={todo}
+          index={index}
+          todoList={todoList}
+          setTodoList={setTodoList}
+          editingTodo={editingTodo}
+          handleEditTodo={handleEditTodo}
+        />
       ))}
     </div>
   );
 }
+
+export default TodoView;

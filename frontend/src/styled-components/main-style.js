@@ -13,7 +13,7 @@ export const Container = styled.div`
 
 export const GroupItem = styled.div`
   border-radius: 14px;
-  background: #05A8AA;
+  background: #4E937A;
   margin: 10px;
 `;
 
@@ -42,22 +42,28 @@ export const CardBody = styled.div`
 `;
 
 export const TitleInput = styled.input`
-  width: 100px;
+  width: 90px;
   margin-top: 10px;
   border-radius: 4px;
   border: 0px;
-  background:#17B4BC;
+  background:#4E937A;
   outline: none;
+  font-weight: bold;
+  font-size:15px;
+  color: #e9e9e9;
+
 `;
 
 export const DescriptionTextarea = styled.textarea`
-  width: 98%;
+  width: 95%;
   margin: 10px;
   resize: none;
   border-radius: 10px;
   border: 0px;
-  background:#17B4BC;
+  background:#4E937A;
   outline: none;
+  color: #e9e9e9;
+  
 `;
 
 export const AddButton = styled.button`
@@ -65,31 +71,49 @@ export const AddButton = styled.button`
   margin: 10px;
   border: 0px;
   border-radius: 5px;
-  background: #FE5F55;
+  background: #B4656F;
   cursor: pointer;
-  padding: 10px
+  padding: 10px;
+  color: #e9e9e9;
+  font-weight:bold;
+
+  &:hover {
+    color: #ffffff;
+  }
+
 `;
 
 export const IndvTask = styled.div`
   border: 0px;
-  margin:10px;
-  background: #05A8AA;
-  border-radius:10px;
+  margin: 10px;
+  background: #4E937A;
+  border-radius: 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
   padding: 10px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  min-height:130px;
+  color:#e9e9e9;
 `;
 
 export const IndvBtn = styled.button`
 align-self: flex-end;
-margin: 10px;
+margin: 2px;
 border: 0px;
 border-radius: 5px;
-background: #FE5F55;
+background: #B4656F;
 cursor: pointer;
-padding: 10px
+padding: 6px;
+color: #e9e9e9;
+font-weight:bold; 
+font-size:14px;
+&:hover {
+  color: #ffffff;
+}
 `;
 
 export const ButtonContainer = styled.div`
@@ -97,3 +121,4 @@ export const ButtonContainer = styled.div`
   flex-direction: column;
   align-items: flex-end;
 `;
+

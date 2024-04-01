@@ -45,8 +45,8 @@ async def post_todo(todo: Todo):
     raise HTTPException(400, "Something went wrong")
 
 @app.put("/api/todo/{title}", response_model=Todo)
-async def put_todo(title: str, data: Todo):
-    response = await update_todo(title, data.dict())
+async def put_todo(title: str, data: dict):
+    response = await update_todo(title, data.get("description"))
     if response:
         return response
     raise HTTPException(404, f"There is no TODO item with the title {title}")
